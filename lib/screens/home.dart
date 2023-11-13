@@ -11,6 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  CarouselController buttonCarouselController = CarouselController();
   int current_index = 0;
   List<String> imageList = [
     'assets/images/0.jpg',
@@ -29,10 +30,11 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                flex: 4,
+                flex: 3,
                 child: Column(
                   children: [
                     CarouselSlider(
+                      carouselController: buttonCarouselController,
                       options: CarouselOptions(
                         height: 320.0,
                         autoPlay: false,
@@ -56,7 +58,7 @@ class _HomeState extends State<Home> {
                       dotsCount: imageList.length,
                       position: current_index,
                       decorator: DotsDecorator(
-                        activeSize: Size(10.0, 10.0),
+                        activeSize: Size(14.0, 14.0),
                       ),
                     ),
                   ],
@@ -76,6 +78,7 @@ class _HomeState extends State<Home> {
                         letterSpacing: 2,
                       ),
                     ).tr(),
+                    SizedBox(height: 20.0),
                     Text(
                       "It is a long established fact that a reader will be\ndistracted by the readable content.",
                       textAlign: TextAlign.center,
@@ -84,7 +87,9 @@ class _HomeState extends State<Home> {
                         color: Colors.grey[600],
                       ),
                     ).tr(),
+                    SizedBox(height: 40.0),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ElevatedButton(
                           onPressed: () {},
@@ -94,7 +99,30 @@ class _HomeState extends State<Home> {
                           ),
                           ).tr(),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey,
+                            padding: EdgeInsets.symmetric(vertical: 22.0, horizontal: 70.0),
+                            backgroundColor: Colors.grey[300],
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
+                        ),
+                        ElevatedButton(
+                          onPressed: () => buttonCarouselController.nextPage(
+                            duration: Duration(milliseconds: 300), curve: Curves.linear),
+                          child: Row(
+                            children: [
+                              Text("Next",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                              ).tr(),
+                              SizedBox(width: 2.0),
+                              Icon(Icons.arrow_circle_right_outlined, color: Colors.white),
+                            ],
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 70.0),
+                            backgroundColor: Colors.blue,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),
