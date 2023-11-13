@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
                       position: current_index,
                       decorator: DotsDecorator(
                         activeSize: Size(12.0, 12.0),
-                        activeColor: Colors.blue,
+                        activeColor: Color.fromARGB(255, 47, 206, 238),
                       ),
                     ),
                   ],
@@ -126,7 +126,7 @@ class _HomeState extends State<Home> {
                           ),
                           style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 70.0),
-                            backgroundColor: Colors.blue,
+                            backgroundColor: Color.fromARGB(255, 47, 206, 238),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),

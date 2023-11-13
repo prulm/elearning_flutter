@@ -9,8 +9,8 @@ void main() async {
   
   runApp(
     EasyLocalization(
-      supportedLocales: [Locale('en', 'US'), Locale('de', 'DE')],
-      path: 'assets/translations', // <-- change the path of the translation files 
+      supportedLocales: [Locale('en', 'US'), Locale('am', 'ET')],
+      path: 'assets/translations/',
       fallbackLocale: Locale('en', 'US'),
       child: ELearning()
     ),
