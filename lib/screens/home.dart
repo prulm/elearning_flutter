@@ -100,6 +100,7 @@ class _HomeState extends State<Home> {
                           child: Text("Skip",
                           style: TextStyle(
                             color: Colors.black,
+                            fontFamily: 'PowerGeez',
                           ),
                           ).tr(),
                           style: ElevatedButton.styleFrom(
@@ -118,6 +119,7 @@ class _HomeState extends State<Home> {
                               Text("Next",
                               style: TextStyle(
                                 color: Colors.white,
+                                fontFamily: 'PowerGeez',
                               ),
                               ).tr(),
                               SizedBox(width: 2.0),

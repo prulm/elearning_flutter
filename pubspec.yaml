@@ -81,7 +81,7 @@ flutter:
   fonts:
     - family: PowerGeez
       fonts:
-        - asset: fonts/powergeez.ttf
+        - asset: assets/fonts/powergeez.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

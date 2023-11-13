@@ -27,16 +27,18 @@ class _DashboardState extends State<Dashboard> {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 12.0,
+                fontFamily: 'PowerGeez'
               ),
-            ),
+            ).tr(),
             Text(
               "Let's start learning",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
+                fontFamily: 'PowerGeez',
               ),
-            ),
+            ).tr(),
           ],
         ),
         actions: [
@@ -73,7 +75,10 @@ class _DashboardState extends State<Dashboard> {
                       controller: _searchTextController,
                       textInputAction: TextInputAction.search,
                       decoration: InputDecoration(
-                        hintText: "Search",
+                        hintText: "Search".tr(),
+                        hintStyle: TextStyle(
+                          fontFamily: 'PowerGeez',
+                        ),
                         prefixIcon:
                             Icon(Icons.search_rounded, color: Colors.grey[600]),
                         border: OutlineInputBorder(
@@ -103,6 +108,7 @@ class _DashboardState extends State<Dashboard> {
                       color: Colors.black,
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'PowerGeez',
                     ),
                   ).tr(),
                   Text(
@@ -110,6 +116,7 @@ class _DashboardState extends State<Dashboard> {
                     style: TextStyle(
                       color: Color.fromARGB(255, 47, 206, 238),
                       fontSize: 12.0,
+                      fontFamily: 'PowerGeez',
                     ),
                   ).tr(),
                 ],

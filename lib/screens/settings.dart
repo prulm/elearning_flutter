@@ -11,10 +11,12 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  String dropdownValue = languages.first;
+ late String dropdownValue;
 
   @override
   Widget build(BuildContext context) {
+    dropdownValue =
+        context.locale == Locale("en", "US") ? languages.first : languages.last;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 47, 206, 238),
@@ -32,7 +34,12 @@ class _SettingsState extends State<Settings> {
       body: Center(
         child: Row(
           children: [
-            Text("Language"),
+            Text(
+              "Language",
+              style: TextStyle(
+                fontFamily: 'PowerGeez',
+              ),
+            ).tr(),
             SizedBox(
               width: 10,
             ),
@@ -51,14 +58,20 @@ class _SettingsState extends State<Settings> {
                 });
                 if (dropdownValue == "English" || dropdownValue == "እንግሊዝኛ") {
                   context.setLocale(Locale("en", "US"));
-                } else if (dropdownValue == "Amharic" || dropdownValue == "አማርኛ") {
-                    context.setLocale(Locale("am", "ET"));
+                } else if (dropdownValue == "Amharic" ||
+                    dropdownValue == "አማርኛ") {
+                  context.setLocale(Locale("am", "ET"));
                 }
               },
               items: languages.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: Text(value).tr(),
+                  child: Text(
+                    value,
+                    style: TextStyle(
+                      fontFamily: 'PowerGeez',
+                    ),
+                  ).tr(),
                 );
               }).toList(),
             )
