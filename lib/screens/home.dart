@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:elearning_flutter/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -58,7 +59,8 @@ class _HomeState extends State<Home> {
                       dotsCount: imageList.length,
                       position: current_index,
                       decorator: DotsDecorator(
-                        activeSize: Size(14.0, 14.0),
+                        activeSize: Size(12.0, 12.0),
+                        activeColor: Colors.blue,
                       ),
                     ),
                   ],
@@ -92,7 +94,9 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Dashboard(),));
+                          },
                           child: Text("Skip",
                           style: TextStyle(
                             color: Colors.black,
