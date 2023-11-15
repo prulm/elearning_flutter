@@ -80,16 +80,22 @@ class _ProfileState extends State<Profile> {
                 Positioned(
                   bottom: 3.0,
                   right: 3.0,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.camera_alt,
-                      color: Colors.deepPurple,
-                      size: 30,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.white,
                     ),
-                    onPressed: () {
-                      showDiaglogue(context);
-                    },
-                    highlightColor: Colors.white,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.camera_alt,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        showDiaglogue(context);
+                      },
+                      highlightColor: Colors.white,
+                    ),
                   ),
                 ),
               ],
