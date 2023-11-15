@@ -89,6 +89,7 @@ class _ProfileState extends State<Profile> {
                     onPressed: () {
                       showDiaglogue(context);
                     },
+                    highlightColor: Colors.white,
                   ),
                 ),
               ],
