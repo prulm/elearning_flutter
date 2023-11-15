@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:elearning_flutter/screens/profile.dart';
 import 'package:elearning_flutter/screens/settings.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +52,7 @@ class _DashboardState extends State<Dashboard> {
           IconButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Settings(),),);
+                    MaterialPageRoute(builder: (context) => Profile(),),);
               },
               icon: Icon(Icons.menu, color: Colors.white)),
         ],

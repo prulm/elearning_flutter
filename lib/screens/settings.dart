@@ -33,6 +33,7 @@ class _SettingsState extends State<Settings> {
       ),
       body: Center(
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "Language",
