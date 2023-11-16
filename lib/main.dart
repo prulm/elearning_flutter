@@ -1,6 +1,5 @@
 import 'package:elearning_flutter/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
@@ -10,7 +9,7 @@ void main() async {
   runApp(
     EasyLocalization(
       supportedLocales: [Locale('en', 'US'), Locale('am', 'ET')],
-      path: 'assets/translations/',
+      path: 'assets/translations',
       fallbackLocale: Locale('en', 'US'),
       child: ELearning()
     ),
