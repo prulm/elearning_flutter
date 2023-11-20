@@ -70,8 +70,12 @@ class _DashboardState extends State<Dashboard> {
               leading: Icon(Icons.settings),
               title: Text("Settings").tr(),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Settings(),),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Settings(),
+                  ),
+                );
               },
               splashColor: Colors.grey[300],
             ),
@@ -107,9 +111,10 @@ class _DashboardState extends State<Dashboard> {
                 Icons.notifications,
                 color: Colors.white,
               )),
-          Builder(builder: (context) => IconButton(
-              onPressed: () => Scaffold.of(context).openDrawer(),
-              icon: Icon(Icons.menu, color: Colors.white)),
+          Builder(
+            builder: (context) => IconButton(
+                onPressed: () => Scaffold.of(context).openDrawer(),
+                icon: Icon(Icons.menu, color: Colors.white)),
           ),
         ],
       ),

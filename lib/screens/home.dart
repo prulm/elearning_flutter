@@ -15,9 +15,9 @@ class _HomeState extends State<Home> {
   CarouselController buttonCarouselController = CarouselController();
   int current_index = 0;
   List<String> imageList = [
-    'assets/images/0.jpg',
-    'assets/images/1.jpg',
-    'assets/images/2.jpg',
+    'assets/images/0.png',
+    'assets/images/1.png',
+    'assets/images/2.png',
   ];
 
   @override
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
                     CarouselSlider(
                       carouselController: buttonCarouselController,
                       options: CarouselOptions(
-                        height: 320.0,
+                        height: MediaQuery.of(context).size.height * .5,
                         autoPlay: false,
                         enlargeCenterPage: true,
                         enlargeFactor: 1,
@@ -104,7 +104,7 @@ class _HomeState extends State<Home> {
                           ),
                           ).tr(),
                           style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 22.0, horizontal: 70.0),
+                            padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * .01, horizontal: MediaQuery.of(context).size.width * .15),
                             backgroundColor: Colors.grey[300],
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
@@ -127,7 +127,7 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                           style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 70.0),
+                            padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * .01, horizontal: MediaQuery.of(context).size.width * .15),
                             backgroundColor: Color.fromARGB(255, 47, 206, 238),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
