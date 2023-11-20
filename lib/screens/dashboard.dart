@@ -12,11 +12,72 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   TextEditingController _searchTextController = TextEditingController();
+  Color themeColor = Color.fromARGB(255, 47, 206, 238);
+  bool darkTheme = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[50],
+      endDrawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: themeColor,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ListTile(
+                    leading: CircleAvatar(
+                      radius: MediaQuery.of(context).size.height * .05,
+                      backgroundImage: NetworkImage(
+                          "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png"),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(darkTheme ? Icons.light_mode : Icons.dark_mode,
+                          color: Colors.white),
+                      onPressed: () {
+                        setState(() {
+                          darkTheme = !darkTheme;
+                        });
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Yared Fekade",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    subtitle: Text(
+                      'jaredyared83@gmail.com',
+                      style: TextStyle(
+                        color: Colors.grey[300],
+                      ),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(Icons.more_vert, color: Colors.white),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("Settings").tr(),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Settings(),),);
+              },
+              splashColor: Colors.grey[300],
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 47, 206, 238),
         title: Column(
@@ -26,10 +87,7 @@ class _DashboardState extends State<Dashboard> {
               "Welcome Yared 👋",
               textAlign: TextAlign.start,
               style: TextStyle(
-                color: Colors.white,
-                fontSize: 12.0,
-                fontFamily: 'PowerGeez'
-              ),
+                  color: Colors.white, fontSize: 12.0, fontFamily: 'PowerGeez'),
             ).tr(),
             Text(
               "Let's start learning",
@@ -49,12 +107,10 @@ class _DashboardState extends State<Dashboard> {
                 Icons.notifications,
                 color: Colors.white,
               )),
-          IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Profile(),),);
-              },
+          Builder(builder: (context) => IconButton(
+              onPressed: () => Scaffold.of(context).openDrawer(),
               icon: Icon(Icons.menu, color: Colors.white)),
+          ),
         ],
       ),
       body: Center(
