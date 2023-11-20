@@ -14,6 +14,8 @@ class _ProfileState extends State<Profile> {
   ImagePicker picker = ImagePicker();
   XFile? image;
   bool isVisible = false;
+  Color themeColor = Color.fromARGB(255, 47, 206, 238);
+
 
   Future<void> galleryImage() async {
     image = await picker.pickImage(source: ImageSource.gallery);
@@ -58,20 +60,24 @@ class _ProfileState extends State<Profile> {
         title: Text(
           "Edit Profile",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
         ),
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
+        backgroundColor: themeColor,
         elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
       ),
       body: Center(
-        child: Column(
+        child: ListView(
           children: [
+            SizedBox(height: 10,),
             Stack(
+              alignment: Alignment.center,
               children: [
                 CircleAvatar(
-                  radius: 80.0,
+                  radius: MediaQuery.of(context).size.width * .25,
                   backgroundImage: (image != null)
                       ? FileImage(File(image!.path))
                       : null,
@@ -81,8 +87,8 @@ class _ProfileState extends State<Profile> {
                     : null,
                 ),
                 Positioned(
-                  bottom: 3.0,
-                  right: 3.0,
+                  bottom: 16.0,
+                  right: 75.0,
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
@@ -105,7 +111,7 @@ class _ProfileState extends State<Profile> {
             ),
             Container(
               alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(left: 25, top: 10),
+              margin: EdgeInsets.only(left: 25, top: 5),
               child: Text(
                 "Name",
                 style: TextStyle(
@@ -117,8 +123,8 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               height: 5,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .9,
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 25.0),
               height: 35,
               child: TextField(
                 decoration: InputDecoration(
@@ -132,10 +138,10 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             Container(
               alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(left: 25, top: 10),
+              margin: EdgeInsets.only(left: 25, top: 5),
               child: Text(
                 "Email",
                 style: TextStyle(
@@ -147,8 +153,8 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               height: 5,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .9,
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 25.0),
               height: 35,
               child: TextField(
                 decoration: InputDecoration(
@@ -162,10 +168,10 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             Container(
               alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(left: 25, top: 10),
+              margin: EdgeInsets.only(left: 25, top: 5),
               child: Text(
                 "Password",
                 style: TextStyle(
@@ -177,8 +183,8 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               height: 5,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .9,
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 25.0),
               height: 35,
               child: TextField(
                 obscureText: !isVisible,
@@ -199,17 +205,23 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            SizedBox(height: 30,),
-            ElevatedButton(
-              child: Text(
-                "Save Changes",
-                style: TextStyle(
-                  color: Colors.white,
+            SizedBox(height: 15,),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 70.0),
+              child: ElevatedButton(
+                child: Text(
+                  "Save Changes",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              onPressed: (){},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepPurple,
+                onPressed: (){},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: themeColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6.0),
+                  ),
+                ),
               ),
             ),
           ],
