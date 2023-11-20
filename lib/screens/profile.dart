@@ -16,15 +16,16 @@ class _ProfileState extends State<Profile> {
   bool isVisible = false;
   Color themeColor = Color.fromARGB(255, 47, 206, 238);
 
-
-  Future<void> galleryImage() async {
+  Future<void> galleryImage(BuildContext context) async {
     image = await picker.pickImage(source: ImageSource.gallery);
     setState(() {});
+    Navigator.pop(context);
   }
 
-  Future<void> cameraImage() async {
+  Future<void> cameraImage(BuildContext context) async {
     image = await picker.pickImage(source: ImageSource.camera);
     setState(() {});
+    Navigator.pop(context);
   }
 
   void showDiaglogue(BuildContext context) {
@@ -39,12 +40,16 @@ class _ProfileState extends State<Profile> {
               ListTile(
                 leading: Icon(Icons.camera),
                 title: Text("Camera"),
-                onTap: cameraImage,
+                onTap: () {
+                  cameraImage(context);
+                },
               ),
               ListTile(
                 leading: Icon(Icons.image),
                 title: Text("Gallery"),
-                onTap: galleryImage,
+                onTap: () {
+                  galleryImage(context);
+                },
               ),
             ],
           ),
@@ -72,19 +77,20 @@ class _ProfileState extends State<Profile> {
       body: Center(
         child: ListView(
           children: [
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Stack(
               alignment: Alignment.center,
               children: [
                 CircleAvatar(
                   radius: MediaQuery.of(context).size.width * .25,
-                  backgroundImage: (image != null)
-                      ? FileImage(File(image!.path))
+                  backgroundImage:
+                      (image != null) ? FileImage(File(image!.path)) : null,
+                  child: (image == null)
+                      ? Image.network(
+                          "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png")
                       : null,
-                  child: (image == null) ? 
-                    Image.network(
-                      "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png")
-                    : null,
                 ),
                 Positioned(
                   bottom: 16.0,
@@ -196,8 +202,9 @@ class _ProfileState extends State<Profile> {
                   )),
                   hintText: 'Enter a password',
                   contentPadding: EdgeInsets.only(left: 10),
-                  suffixIcon: IconButton( 
-                    icon: Icon(isVisible ? Icons.visibility_off : Icons.visibility),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                        isVisible ? Icons.visibility_off : Icons.visibility),
                     onPressed: () {
                       setState(() => isVisible = !isVisible);
                     },
@@ -205,7 +212,9 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 70.0),
               child: ElevatedButton(
@@ -215,7 +224,7 @@ class _ProfileState extends State<Profile> {
                     color: Colors.white,
                   ),
                 ),
-                onPressed: (){},
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: themeColor,
                   shape: RoundedRectangleBorder(
