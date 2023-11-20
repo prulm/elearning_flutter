@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:elearning_flutter/screens/profile.dart';
 import 'package:elearning_flutter/screens/settings.dart';
 import 'package:flutter/material.dart';
 

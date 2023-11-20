@@ -72,10 +72,13 @@ class _ProfileState extends State<Profile> {
               children: [
                 CircleAvatar(
                   radius: 80.0,
-                  child: image != null
-                      ? Image.file(File(image!.path))
-                      : Image.network(
-                          "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png"),
+                  backgroundImage: (image != null)
+                      ? FileImage(File(image!.path))
+                      : null,
+                  child: (image == null) ? 
+                    Image.network(
+                      "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png")
+                    : null,
                 ),
                 Positioned(
                   bottom: 3.0,
