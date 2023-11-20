@@ -28,7 +28,7 @@ class ELearning extends StatelessWidget {
       locale: context.locale,
       title: 'E-Learning app',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 47, 206, 238)),
         useMaterial3: true,
       ),
       home: const Home(),
