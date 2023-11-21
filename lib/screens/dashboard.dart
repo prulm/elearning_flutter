@@ -111,22 +111,22 @@ class _DashboardState extends State<Dashboard> {
             ).tr(),
           ],
         ),
-        // actions: [
-        //   IconButton(
-        //       onPressed: () {},
-        //       icon: Icon(
-        //         Icons.notifications,
-        //         color: Colors.white,
-        //       )),
-        //   Builder(
-        //     builder: (context) => IconButton(
-        //         onPressed: () {
-        //           Scaffold.of(context).openDrawer();
-        //           setState(() {});
-        //         },
-        //         icon: Icon(Icons.menu, color: Colors.white)),
-        //   ),
-        // ],
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.white,
+              )),
+          Builder(
+            builder: (context) => IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                  setState(() {});
+                },
+                icon: Icon(Icons.menu, color: Colors.white)),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
