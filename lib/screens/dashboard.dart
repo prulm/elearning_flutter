@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:elearning_flutter/screens/settings.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Colors.grey[100],
       endDrawer: Drawer(
         child: ListView(
           children: [
@@ -25,6 +26,11 @@ class _DashboardState extends State<Dashboard> {
               decoration: BoxDecoration(
                 color: themeColor,
               ),
+              // currentAccountPicture: Image.network(
+              //     "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png"),
+              // accountName: Text("Yared Fekade"),
+              // accountEmail: Text("Jaredyared83@gmail.com"),
+              // onDetailsPressed: () {},
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -69,6 +75,7 @@ class _DashboardState extends State<Dashboard> {
               leading: Icon(Icons.settings),
               title: Text("Settings").tr(),
               onTap: () {
+                Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -83,6 +90,7 @@ class _DashboardState extends State<Dashboard> {
       ),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 47, 206, 238),
+        elevation: 0.0,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -103,23 +111,25 @@ class _DashboardState extends State<Dashboard> {
             ).tr(),
           ],
         ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.notifications,
-                color: Colors.white,
-              )),
-          Builder(
-            builder: (context) => IconButton(
-                onPressed: () => Scaffold.of(context).openDrawer(),
-                icon: Icon(Icons.menu, color: Colors.white)),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //       onPressed: () {},
+        //       icon: Icon(
+        //         Icons.notifications,
+        //         color: Colors.white,
+        //       )),
+        //   Builder(
+        //     builder: (context) => IconButton(
+        //         onPressed: () {
+        //           Scaffold.of(context).openDrawer();
+        //           setState(() {});
+        //         },
+        //         icon: Icon(Icons.menu, color: Colors.white)),
+        //   ),
+        // ],
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Stack(
               children: [
@@ -130,12 +140,13 @@ class _DashboardState extends State<Dashboard> {
                 Center(
                   child: Container(
                     margin: EdgeInsets.only(top: 18.0),
-                    height: 40,
-                    width: MediaQuery.sizeOf(context).width * .96,
+                    height: MediaQuery.sizeOf(context).height * .07,
+                    width: MediaQuery.sizeOf(context).width * .9,
                     child: TextField(
                       controller: _searchTextController,
                       textInputAction: TextInputAction.search,
                       decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(0),
                         hintText: "Search".tr(),
                         hintStyle: TextStyle(
                           fontFamily: 'PowerGeez',
@@ -159,7 +170,7 @@ class _DashboardState extends State<Dashboard> {
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30.0),
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -172,17 +183,21 @@ class _DashboardState extends State<Dashboard> {
                       fontFamily: 'PowerGeez',
                     ),
                   ).tr(),
-                  Text(
-                    "See All",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 47, 206, 238),
-                      fontSize: 12.0,
-                      fontFamily: 'PowerGeez',
-                    ),
-                  ).tr(),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "See All",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 47, 206, 238),
+                        fontSize: 12.0,
+                        fontFamily: 'PowerGeez',
+                      ),
+                    ).tr(),
+                  ),
                 ],
               ),
             ),
+            SizedBox(height: 20),
           ],
         ),
       ),
