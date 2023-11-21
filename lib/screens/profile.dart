@@ -84,7 +84,7 @@ class _ProfileState extends State<Profile> {
               alignment: Alignment.center,
               children: [
                 CircleAvatar(
-                  radius: MediaQuery.of(context).size.width * .25,
+                  radius: MediaQuery.of(context).size.width * .2,
                   backgroundImage:
                       (image != null) ? FileImage(File(image!.path)) : null,
                   child: (image == null)
@@ -93,8 +93,8 @@ class _ProfileState extends State<Profile> {
                       : null,
                 ),
                 Positioned(
-                  bottom: 16.0,
-                  right: 75.0,
+                  bottom: MediaQuery.of(context).size.height * .01,
+                  right: MediaQuery.of(context).size.width * .3,
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
